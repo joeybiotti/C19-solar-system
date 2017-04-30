@@ -17,21 +17,26 @@ planets.forEach(function(planetsList){
 var capPlanetDiv = document.getElementById("capital-planets");
 
 capPlanets = planets.map(function(capital){
-	return capital.charAt(0).toUpperCase().replace();
-})
-	capPlanetDiv.innerHTML += " " + capPlanets;
-	console.log("capitalized", capPlanets);
+	return capital.charAt(0).toUpperCase() + capital.slice(1);
+});
 
+	capPlanetDiv.innerHTML = capPlanets;
+	console.log("capitalized", capPlanets);
 
 // Use the filter method to create a new array that contains planets with the letter 'e'
 
-var filteredPlanets = document.getElementById("filtered-planets");
+var filPlanetDiv = document.getElementById("filtered-planets");
 
-filPlanets = planets.filter(function(remove){
-	return remove.indexOf();
-})
-	filteredPlanets.innerHTML += " " + filPlanets;
-	console.log("removed", filPlanets);
+filPlanets =  planets.filter(function(filtered){
+	for (var i = 0; i < filtered.length; i++) {
+		if(filtered.charAt(i).toUpperCase() === "E"){
+			return filtered;
+		}
+	}
+});
+
+	filPlanetDiv.innerHTML = filPlanets;
+	console.log("filtered", filPlanets);
 
 
 // Use the reduce method to create a sentence from the words in the following array
